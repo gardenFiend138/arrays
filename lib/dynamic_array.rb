@@ -1,21 +1,35 @@
 require_relative "static_array"
 
-class DynamicArray
+class DynamicArray < StaticArray
   attr_reader :length
 
-  def initialize
+  def initialize(capacity = 8)
+    self.capacity = capacity
+    self.length = 0
+    super(length)
   end
 
   # O(1)
   def [](index)
+    if index < 0 || index >= length 
+      raise 'index out of bounds'
+    end 
+    # self.within_range(index)
+    super
   end
 
   # O(1)
   def []=(index, value)
+    # self.within_range(index)
+    if index < 0 || index >= length 
+      raise 'index out of bounds'
+    end 
+    super
   end
 
   # O(1)
   def pop
+    
   end
 
   # O(1) ammortized; O(n) worst case. Variable because of the possible
@@ -40,5 +54,11 @@ class DynamicArray
 
   # O(n): has to copy over all the elements to the new store.
   def resize!
+  end
+  
+  def within_range(index)
+    if index < 0 || index >= length 
+      raise 'index out of bounds'
+    end 
   end
 end
