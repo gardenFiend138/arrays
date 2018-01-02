@@ -6,18 +6,18 @@ class DynamicArray < StaticArray
   def initialize(capacity = 8)
     self.capacity = capacity
     self.length = 0
-    super(length)
+    super(capacity)
   end
 
   # O(1)
   def [](index)
-    self.within_range(index)
+    within_range(index)
     super
   end
 
   # O(1)
   def []=(index, value)
-    self.within_range(index)
+    within_range(index)
     super
   end
 
