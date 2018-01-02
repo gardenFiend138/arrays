@@ -77,12 +77,13 @@ class RingBuffer < StaticArray
     self.size = capacity
     self
   end
-
-# def within_range(index)
+  
+  # def within_range(index)
   #   if index < 0 || index >= length 
   #     raise 'index out of bounds'
   #   end 
   # end
+
 end
 
 
